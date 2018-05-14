@@ -1,8 +1,6 @@
 `default_nettype none
 //`include "const.vh"
 
-// check connections to VGA adapter on https://github.com/Obijuan/MonsterLED/wiki
-
 module top (
         input  wire       clk,       // System clock.
 
@@ -25,22 +23,30 @@ module top (
 
     // FIFO instantiation
     wire [7:0] ufifo0_o_data;
-    ufifo #(.LGFLEN(4'd10)) ufifo0 (
+    wire ufifo0_o_err;
+    ufifo #(.LGFLEN(4'd3)) ufifo0 (
         .i_clk(clk),
         .i_rst(1'b0),
         .i_wr(rxuartlite0_o_wr),
         .i_data(rxuartlite0_o_data),
         .i_rd(sw1_d),
         .o_data(ufifo0_o_data),
-        .o_empty_n(),
+        .o_empty_n(leds[5]),
         .o_status(),
-        .o_err()
+        .o_err( ufifo0_o_err )
     );
 
     reg ctl_reg_leds = 0;
     always @( posedge clk) begin
         ctl_reg_leds <= sw1_d;
     end
+
+    reg r_led0 = 0;
+    always @( posedge clk) begin
+        if(ufifo0_o_err) r_led0 <= 1;
+        else r_led0 <= r_led0;
+    end
+    assign leds[0] = r_led0;
 
     // Register for LEDs
     reg [7:0] r_leds = 0;
@@ -49,10 +55,10 @@ module top (
     //     if(ctl_reg_leds) r_leds <= ufifo0_o_data;
     // end
 
-    always @( posedge clk) begin
-        if(rxuartlite0_o_wr) r_leds <= rxuartlite0_o_data;
-    end
+    // always @( posedge clk) begin
+    //     if(rxuartlite0_o_wr) r_leds <= rxuartlite0_o_data;
+    // end
 
-    assign leds = r_leds;
+    // assign leds = r_leds;
 
 endmodule

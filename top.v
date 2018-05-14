@@ -43,7 +43,7 @@ module top (
     always @( posedge clk) begin
         r_leds <= r_leds;
 
-        if(sw1_u) begin
+        if(sw1_d) begin
             if(ufifo0_o_empty_n) begin
                 // FIFO not empty
                 r_leds <= ufifo0_o_data;

@@ -30,6 +30,6 @@ begin
     if(PB_cnt_max) PB_state <= ~PB_state;  // if the counter is maxed out, PB changed!
 end
 
-assign PB_down = ~PB_idle & PB_cnt_max & ~PB_state;
-assign PB_up   = ~PB_idle & PB_cnt_max &  PB_state;
+assign PB_up   = ~PB_idle & PB_cnt_max & ~PB_state;
+assign PB_down = ~PB_idle & PB_cnt_max &  PB_state;
 endmodule

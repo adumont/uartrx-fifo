@@ -5,15 +5,12 @@ ifndef $(MODULE)
 endif
 ifeq ($(MODULE), top)
   DEPS:=\
-    font.v \
-    tilemem.v \
-    ram.v \
-    vga_sync.v
+    debouncer.v \
+    rxuartlite.v \
+    ufifo.v
 
-  AUXFILES:=\
-    ram.list\
-    ram65.list\
-	const.vh
+# AUXFILES:=\
+    const.vh
 
 # YOSYSOPT:=-retime -abc2
 endif

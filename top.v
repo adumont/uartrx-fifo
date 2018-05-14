@@ -23,7 +23,8 @@ module top (
 
     // FIFO instantiation
     wire [7:0] ufifo0_o_data;
-    wire ufifo0_o_err;
+    wire ufifo0_o_err; // full
+    wire ufifo0_o_empty_n; // not empty
     ufifo #(.LGFLEN(4'd3)) ufifo0 (
         .i_clk(clk),
         .i_rst(1'b0),
@@ -31,34 +32,28 @@ module top (
         .i_data(rxuartlite0_o_data),
         .i_rd(sw1_d),
         .o_data(ufifo0_o_data),
-        .o_empty_n(leds[5]),
+        .o_empty_n(ufifo0_o_empty_n), // not empty
         .o_status(),
-        .o_err( ufifo0_o_err )
+        .o_err( ufifo0_o_err ) // overflow
     );
-
-    reg ctl_reg_leds = 0;
-    always @( posedge clk) begin
-        ctl_reg_leds <= sw1_d;
-    end
-
-    reg r_led0 = 0;
-    always @( posedge clk) begin
-        if(ufifo0_o_err) r_led0 <= 1;
-        else r_led0 <= r_led0;
-    end
-    assign leds[0] = r_led0;
 
     // Register for LEDs
     reg [7:0] r_leds = 0;
 
-    // always @( posedge clk) begin
-    //     if(ctl_reg_leds) r_leds <= ufifo0_o_data;
-    // end
+    always @( posedge clk) begin
+        r_leds <= r_leds;
 
-    // always @( posedge clk) begin
-    //     if(rxuartlite0_o_wr) r_leds <= rxuartlite0_o_data;
-    // end
+        if(sw1_u) begin
+            if(ufifo0_o_empty_n) begin
+                // FIFO not empty
+                r_leds <= ufifo0_o_data;
+            end
+            else begin
+                r_leds <= 8'b0;
+            end
+        end 
+    end
 
-    // assign leds = r_leds;
+    assign leds = r_leds;
 
 endmodule

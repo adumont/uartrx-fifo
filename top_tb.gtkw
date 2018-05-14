@@ -1,0 +1,93 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Sat May  5 17:55:44 2018
+[*]
+[dumpfile] "/home/adumont/projects/Font/top_tb.vcd"
+[dumpfile_mtime] "Sat May  5 17:53:44 2018"
+[dumpfile_size] 35031085
+[savefile] "/home/adumont/projects/Font/top_tb.gtkw"
+[timestart] 70257
+[size] 1678 998
+[pos] -1 -1
+*-3.677804 70275 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top_tb.
+[treeopen] top_tb.top0.
+[treeopen] top_tb.top0.font0.
+[treeopen] top_tb.top0.vga_sync0.
+[sst_width] 197
+[signals_width] 230
+[sst_expanded] 1
+[sst_vpaned_height] 299
+@28
+top_tb.clk
+@200
+-vga_sync
+@28
+top_tb.top0.vga_sync0.px_clk
+@24
+top_tb.top0.vga_sync0.vc[9:0]
+top_tb.top0.vga_sync0.hc[9:0]
+[color] 2
+top_tb.top0.vga_sync0.x_px[9:0]
+top_tb.top0.vga_sync0.y_px[9:0]
+@28
+[color] 7
+top_tb.top0.vga_sync0.hsync
+[color] 7
+top_tb.top0.vga_sync0.vsync
+[color] 3
+top_tb.top0.vga_sync0.activevideo
+top_tb.top0.activevideo0
+top_tb.top0.activevideo1
+@29
+top_tb.top0.activevideo2
+@200
+-tile ram
+@22
+top_tb.top0.ram0.raddr[6:0]
+@200
+-font
+@c00022
+top_tb.top0.font0.character[7:0]
+@28
+(0)top_tb.top0.font0.character[7:0]
+(1)top_tb.top0.font0.character[7:0]
+(2)top_tb.top0.font0.character[7:0]
+(3)top_tb.top0.font0.character[7:0]
+(4)top_tb.top0.font0.character[7:0]
+(5)top_tb.top0.font0.character[7:0]
+(6)top_tb.top0.font0.character[7:0]
+(7)top_tb.top0.font0.character[7:0]
+@1401200
+-group_end
+@c00022
+top_tb.top0.font0.pos_y[9:0]
+@28
+(0)top_tb.top0.font0.pos_y[9:0]
+(1)top_tb.top0.font0.pos_y[9:0]
+(2)top_tb.top0.font0.pos_y[9:0]
+(3)top_tb.top0.font0.pos_y[9:0]
+(4)top_tb.top0.font0.pos_y[9:0]
+(5)top_tb.top0.font0.pos_y[9:0]
+(6)top_tb.top0.font0.pos_y[9:0]
+(7)top_tb.top0.font0.pos_y[9:0]
+(8)top_tb.top0.font0.pos_y[9:0]
+(9)top_tb.top0.font0.pos_y[9:0]
+@1401200
+-group_end
+@24
+top_tb.top0.font0.row[10:0]
+top_tb.top0.font0.col[2:0]
+@28
+top_tb.top0.font0.data
+@200
+-pixel
+@24
+top_tb.top0.px_x0[9:0]
+top_tb.top0.px_x1[9:0]
+top_tb.top0.px_x2[9:0]
+top_tb.top0.px_y0[9:0]
+top_tb.top0.px_y1[9:0]
+top_tb.top0.px_y2[9:0]
+[pattern_trace] 1
+[pattern_trace] 0

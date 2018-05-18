@@ -18,5 +18,5 @@ set_io   leds[7]           104
 # set_io --warn-no-port DTR 3
 # set_io --warn-no-port CTS 4
 # set_io --warn-no-port RTS 7
-# set_io --warn-no-port TX  8
+set_io --warn-no-port TX  8
 set_io --warn-no-port RX  9

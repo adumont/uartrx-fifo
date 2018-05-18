@@ -16,6 +16,7 @@ ifeq ($(MODULE), $(TOP))
   DEPS:=\
     debouncer.v \
     rxuartlite.v \
+	txuartlite.v \
     ufifo.v
 
 # AUXFILES:=\

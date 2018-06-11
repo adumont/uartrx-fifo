@@ -36,13 +36,16 @@ module top (
     ufifo #(.LGFLEN(4'd3)) ufifo0 (
         .i_clk(clk),
         .i_rst(1'b0),
+        // write port (push)
         .i_wr(rxuartlite0_o_wr),
         .i_data(rxuartlite0_o_data),
+        // read port (pop)
         .i_rd(sw1_d),
         .o_data(ufifo0_o_data),
+        // flags
         .o_empty_n(ufifo0_o_empty_n), // not empty
         .o_status(),
-        .o_err( ufifo0_o_err ) // overflow
+        .o_err( ufifo0_o_err ) // overflow aka full
     );
 
     // Register for LEDs
